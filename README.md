@@ -72,9 +72,7 @@ You click on the blue button. This sets up a [linear programming model](https://
 
 `right sidebearing + kerning value + left sidebearing = pair distance computed from the feature-feature estimates`.
 
-**What about the minimization thing?**
-
-It's called the *objective* (sorry guys, I do this stuff for a living), and in our case we'll minimize the sum of all kerning values. Because we want as little kerning throughout the font as possible, get it?
+While staying within these constraints, we'll minimize the sum of all kerning values. Because we want as little kerning throughout the font as possible, right?
 
 Now, this isn't straightforward, because negative and positive kerns will cancel each other out, so we'll have to add—
 
