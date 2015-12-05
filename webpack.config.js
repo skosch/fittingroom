@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var PROD = JSON.parse(process.env.PROD_DEV || false);
 
 module.exports = {
-  entry: [
+  entry: PROD ? './src/index.jsx' : [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './src/index.jsx'
@@ -28,10 +28,7 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist',
-    hot: true
+    hot: PROD ? true : false
   },
-  plugins: PROD ?  [ new webpack.optimize.UglifyJsPlugin({minimize: true}) ]
-  : [
-    new webpack.HotModuleReplacementPlugin(),
-  ]
+  plugins: PROD ?  [ new webpack.optimize.UglifyJsPlugin({minimize: true}) ] : [ new webpack.HotModuleReplacementPlugin() ]
 };
