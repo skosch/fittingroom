@@ -26,6 +26,12 @@ export function setSampleText(text) {
   };
 }
 
+export function optimize(text) {
+  return {
+    type: 'OPTIMIZE'
+  };
+}
+
 export function setEstimate(rightIndex, leftIndex, value) {
   return {
     type: 'SET_ESTIMATE',
@@ -40,24 +46,17 @@ export function nextNMF() {
     type: 'NEXT_NMF',
   };
 }
-export function addKnownDistance(rightIndex, leftIndex, value, variance) {
+
+export function addKnownDistance(rightIndex, leftIndex, value) {
   return {
     type: 'ADD_KNOWNDISTANCE',
     rightIndex,
     leftIndex,
     value,
-    variance
   };
 }
 export function loadFont() {
   return {
     type: 'LOAD_FONT',
-  };
-}
-
-export function computeNMF(matrix) {
-  return {
-    type: 'COMPUTE_NMF',
-    matrix
   };
 }

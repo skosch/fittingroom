@@ -61,7 +61,6 @@ function NMF(matrix, nFeatures = 2) {
       break;
     }
 
-    console.log(costVal);
     // update feature columns
     gemm(HN, W.transpose(1, 0), M);
     gemm(WW, W.transpose(1, 0), W);

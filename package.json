@@ -35,7 +35,7 @@
     "uuid": "^2.0.1",
 
     "react-draggable": "git://github.com/avishorp/react-draggable.git#resetOnStop",
-
+    "react-dropzone": "3.2.2",
     "ndarray-sort": "1.0.1",
     "ndarray-ops": "1.2.2",
     "ndarray-pack": "1.1.1",
@@ -46,6 +46,8 @@
     "ndgemm": "1.0.0",
     "save-pixels": "2.3.0",
     "ndarray-householder-qr": "2.3.1",
+
+    "numeric": "1.2.6",
 
     "lodash": "*"
   }

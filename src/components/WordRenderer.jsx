@@ -31,10 +31,12 @@ export default React.createClass({
           currentContext.stroke();
         }
       }
-      if (i === l - 1) break;
-      let nextLetterIndex = this.props.fontInfo.get('activeLetters').indexOf(this.state.text.substr(i + 1, 1));
-      currentCanvas.style.marginRight = this.props.pairEstimates.get(currentLetterIndex, nextLetterIndex) + "px";
-      this.refs.draggable.style.transform = "";
+      if (i === l - 1) {
+        currentCanvas.style.marginRight = 0;
+      } else {
+        let nextLetterIndex = this.props.fontInfo.get('activeLetters').indexOf(this.state.text.substr(i + 1, 1));
+        currentCanvas.style.marginRight = this.props.pairEstimates.get(currentLetterIndex, nextLetterIndex) + "px";
+      }
     }
   },
   componentDidMount: function() {
@@ -53,22 +55,27 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <div style={{margin: '1em'}}>
-          <input onChange={event => this.setState({text: event.target.value})} value={this.state.text}></input>
+        <div style={{borderBottom: '1px solid gray', margin: '1em auto 3em auto', width: '80%'}}>
+          <span style={{width: '20%', fontWeight: 'bold', color: '#818181'}}>Fit word:&nbsp;</span>
+          <input
+            onChange={event => this.setState({text: event.target.value.replace(/[^a-zA-Z]/g, '')})}
+            value={this.state.text}
+            style={{border: 'none', width: '80%'}}></input>
         </div>
-
-        {this.state.text.split('').slice(0, this.state.draggableIndex).map((l, li) => (
+        <div style={{textAlign: 'center'}}>
+          {this.state.text.split('').slice(0, this.state.draggableIndex).map((l, li) => (
             <canvas key={li}
-              width='300' height='200' ref={'glyphCanvas_' + li} onMouseEnter={() => this.setState({draggableIndex: li})}></canvas>
-        ))}
-        <Draggable resetOnStop={true} axis="x" onStop={(event, ui) => {this.addKnownDistance(ui.position.left);}}>
-          <div style={{display: 'inline-block', cursor: 'e-resize'}} ref="draggable">
-        {this.state.text.split('').slice(this.state.draggableIndex).map((l, li) => (
-            <canvas key={li + this.props.draggableIndex} onMouseEnter={() => this.setState({draggableIndex: (+li + (+this.state.draggableIndex))})}
-              width='300' height='200' ref={'glyphCanvas_' + ((+li) + (+this.state.draggableIndex))}></canvas>
+              width='300' height='200' ref={'glyphCanvas_' + li} onMouseEnter={() => {if (li > 0) this.setState({draggableIndex: li});}}></canvas>
           ))}
-          </div>
-        </Draggable>
+          <Draggable resetOnStop={true} axis="x" onStop={(event, ui) => {this.addKnownDistance(ui.position.left);}}>
+            <div style={{display: 'inline-block', cursor: 'e-resize'}} ref="draggable">
+              {this.state.text.split('').slice(this.state.draggableIndex).map((l, li) => (
+                <canvas key={li + this.props.draggableIndex} onMouseEnter={() => this.setState({draggableIndex: (+li + (+this.state.draggableIndex))})}
+                  width='300' height='200' ref={'glyphCanvas_' + ((+li) + (+this.state.draggableIndex))}></canvas>
+              ))}
+            </div>
+          </Draggable>
+        </div>
       </div>
     );
   }

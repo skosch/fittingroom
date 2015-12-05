@@ -12,6 +12,7 @@ export default function(fontInfo) {
   let ctx = canvas.getContext('2d');
 
   let fullGlyphs = [], leftSides = [], rightSides = [], bearings = [];
+
   for (let letterIndex = 0; letterIndex < fontInfo.activeLetters.length; letterIndex++) {
     let letter = fontInfo.activeLetters[letterIndex];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -43,14 +44,14 @@ export default function(fontInfo) {
       }
     }
     let trimWidth = rightBearing - leftBearing;
-    let totalWidth = ctx.measureText(letter).width;
+    let totalWidth = ctx.measureText(letter).width; // this may mean we need a positive
 
     if (letter === " ") {
       fullGlyphs.push(pool.zeros([totalWidth, canvas.height, 4]));
       bearings.push([totalWidth, 0]);
       continue;
     }
-    
+
     bearings.push([leftBearing, totalWidth - rightBearing]);
 
     // now crop the letters left and right.
