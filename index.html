@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css"></link>
   <link rel="stylesheet" href="./dist/style.css"></link>
   <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,700' rel='stylesheet' type='text/css'>
-  <title>FittingRoomJS (Github Demo)</title>
+  <title>FittingRoomJS</title>
 </head>
 <body>
   <div id="stdout"></div>
@@ -15,7 +15,6 @@
   var readIndex = 0;
   var input = "import /tmp/test.file min solve solu stdout\r\n";
   var output = "";
-  //var arguments = ['/tmp/test.file', '-maximize'];
   var Module = {
     print: function(text) { output += text + '\n'; },
     noInitialRun: true,
@@ -34,7 +33,7 @@
   };
 
   </script>
-  <script src="./dist/bundle.js"></script>
+  <script src="./dist/bundle.min.js"></script>
   <script src="./dist/clp.js"></script>
 </body>
 </html>

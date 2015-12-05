@@ -1,5 +1,3 @@
-import numeric from 'numeric';
-
 function mps(state, action) {
   let glyphCount = state.getIn(['font', 'info', 'activeLetters']).length;
 

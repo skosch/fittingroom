@@ -47,8 +47,6 @@
     "save-pixels": "2.3.0",
     "ndarray-householder-qr": "2.3.1",
 
-    "numeric": "1.2.6",
-
     "lodash": "*"
   }
 }

@@ -1,4 +1,5 @@
 node_modules
+dist/bundle.js
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 *.un~

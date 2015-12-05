@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 
+var PROD = JSON.parse(process.env.PROD_DEV || false);
+
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
@@ -22,13 +24,14 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: PROD ? 'bundle.min.js' : "bundle.js"
   },
   devServer: {
     contentBase: './dist',
     hot: true
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
+  plugins: PROD ?  [ new webpack.optimize.UglifyJsPlugin({minimize: true}) ]
+  : [
+    new webpack.HotModuleReplacementPlugin(),
   ]
 };
