@@ -94,9 +94,10 @@ This project was, above all, an opportunity for me to test out new stuff:
 
 **Why nonnegative matrix factorization, and not PCA or some other (probably faster) decomposition?**
 
-Because those other decompositions don't discriminate between negative space and ink-space, and are perfectly happy to give you features that need to be added *and* subtracted from each other. As a result, the features don't look at all like letter groups and more like abstract art. Here are the PCA and NMF for Alegreya:
+Because those other decompositions don't discriminate between negative space and ink-space, and are perfectly happy to give you features that need to be added *and* subtracted from each other. As a result, the features don't look at all like letter groups and more like abstract art. Here are the 9-feature PCA and NMF reductions for Alegreya:
 
-
+![PCA](https://raw.githubusercontent.com/skosch/fittingroom/gh-pages/docs/pca.png "PCA")
+![NMF](https://raw.githubusercontent.com/skosch/fittingroom/gh-pages/docs/nmf.png "NMF")
 
 **What's next?**
 
@@ -112,3 +113,7 @@ Now, if you wanted to turn this into a *real* tool, in RoboFab or whatever, you'
 * incorporating it into a UI that allows you to deal with glyphs beyond `[a-zA-Z]` ... libre automatic MetricsMachine clone, anyone?
 * obviously, export the metrics into the font file – there isn't an easy way to do that from JS yet
 * ... a million other things.
+
+**Can I fork this?**
+
+Please do! I don't think I'll have a ton of time to work on this in the future, but all contributions/ideas/comments are welcome :)
