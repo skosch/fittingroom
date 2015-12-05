@@ -107,7 +107,7 @@ Now, if you wanted to turn this into a *real* tool, in RoboFab or whatever, you'
 * maybe not *only* have distances depend on feature estimates, but also on other stuff, like minimum absolute distances between letters, or distances between stems (which one might identify using e.g. Gabor filters). This would play a role in optical-size-dependent letterfitting.
 * let the user specify minimum distances between certain letter pairs, which would be added to the LP model as extra constraints
 * change up the objective function: maybe use the sum of the squares of the kerns (would need a different solver), or modify the objective to *also* (in some weighted sense) optimize the look of the font if kerning is disabled
-* optimization for an OT kern table of minimal size: this is probably a more useful cost metric than the sheer sum of kerns, especially when you're serving millions of files a day ... hey, Google, I'm for hire :)
+* optimization for an OT kern table of minimal size: this is probably a more useful cost metric than the sheer sum of kerns, especially when you're serving millions of files a day ... hey, Google, I'm for hire :) (you'd probably want to use a constraint solver for this)
 * incorporating it into a UI that allows you to deal with glyphs beyond `[a-zA-Z]` ... libre automatic MetricsMachine clone, anyone?
 * obviously, export the metrics into the font file – there isn't an easy way to do that from JS yet
 * ... a million other things.
