@@ -117,3 +117,5 @@ Now, if you wanted to turn this into a *real* tool, in RoboFab or whatever, you'
 Please do! I don't think I'll have a ton of time to work on this in the future, but all contributions/ideas/comments are welcome :)
 
 The code is a bit of a mess probably. Don't judge.
+
+License is GLPv3.
