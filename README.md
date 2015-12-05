@@ -86,8 +86,8 @@ I know, and I ♥ Python, and have used it a lot in the past for numerical work.
 
 This project was, above all, an opportunity for me to test out new stuff:
 
-* [react-redux](https://github.com/rackt/react-redux). Turned out awesome; highly recommended for front-end work.
-* [ndarray](https://github.com/scijs/ndarray). The best non-asmjs/non-GPU collection of matrix tools for JS there is. I may make with asmjs and/or GPU version of this tool in the future. For now, I can confidently say that ndarray is great, although it's still miles behind Scipy or Julia, of course.
+* [react-redux](https://github.com/rackt/react-redux), which turned out to be awesome; I highly recommend it for front-end work.
+* [ndarray](https://github.com/scijs/ndarray). The best non-asmjs/non-GPU collection of matrix tools for JS there is. I may make a asmjs and/or GPU version of this tool in the future. For now, I can confidently say that ndarray is great, although it's still miles behind Scipy or Julia, of course.
 * Linear optimization in the browser. I was disappointed to find that all available Simplex solvers in Javascript are pretty horrible. So I went ahead and [transpiled](https://github.com/kripken/emscripten) the [CLP](https://projects.coin-or.org/Clp) solver, which is the best (libre) one around. So that is the one you're running here. I hope it works for you. Of course, without proper BLAS/LAPACK etc. it's still much slower in the browser than run natively.
 
 **Why nonnegative matrix factorization, and not PCA or some other (probably faster) decomposition?**
@@ -107,7 +107,7 @@ Now, if you wanted to turn this into a *real* tool, in RoboFab or whatever, you'
 * maybe not *only* have distances depend on feature estimates, but also on other stuff, like minimum absolute distances between letters, or distances between stems (which one might identify using e.g. Gabor filters). This would play a role in optical-size-dependent letterfitting.
 * let the user specify minimum distances between certain letter pairs, which would be added to the LP model as extra constraints
 * change up the objective function: maybe use the sum of the squares of the kerns (would need a different solver), or modify the objective to *also* (in some weighted sense) optimize the look of the font if kerning is disabled
-* optimization for an OT kern table of minimal size: this is probably a more useful cost metric than the sheer sum of kerns, especially when you're serving millions of files a day (hey, Google, I'm for hire ...)
+* optimization for an OT kern table of minimal size: this is probably a more useful cost metric than the sheer sum of kerns, especially when you're serving millions of files a day ... hey, Google, I'm for hire :)
 * incorporating it into a UI that allows you to deal with glyphs beyond `[a-zA-Z]` ... libre automatic MetricsMachine clone, anyone?
 * obviously, export the metrics into the font file – there isn't an easy way to do that from JS yet
 * ... a million other things.
